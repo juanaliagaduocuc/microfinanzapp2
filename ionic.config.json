@@ -1,0 +1,7 @@
+{
+  "name": "microfinanzapp2",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
