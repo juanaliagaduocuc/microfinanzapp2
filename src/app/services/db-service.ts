@@ -172,7 +172,6 @@ export class DbService {
       await this.local.setBalanceUsuario(bal);
       await this.local.setUsuarioActivo();
       await this.local.setIdUsuario(id);
-      alert(await this.local.setUsuarioActivo());
     }
   }
 

@@ -30,9 +30,7 @@ export class LoginPage implements OnInit {
 
   async ingresar() {
     if(await this.db.userStored(this.userLogin,this.passLogin)){
-      alert("Usuario Existe")
       let id = await this.db.getUserId(this.userLogin,this.passLogin);
-      alert(id);
       await this.db.localUserData(id);
       this.router.navigate(['/home']);
     }else {
