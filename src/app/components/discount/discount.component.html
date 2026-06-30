@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Calculadora Descuento
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="ion-padding-vertical">
+    <ion-card-content>
+      <ion-label>Precio Original</ion-label>
+      <ion-input
+        type="number"
+        [(ngModel)]="precio"
+        (ionInput)="descuento()">
+      </ion-input>
+      <ion-label>Descuento</ion-label>
+      <ion-input
+        type="number"
+        [(ngModel)]="porcentaje"
+        (ionInput)="descuento()">
+      </ion-input>
+    </ion-card-content>
+  </ion-card>
+  <ion-card class="ion-padding-vertical">
+    <ion-card-header>
+      <ion-card-title>Precio Final y Ahorro</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-label>Precio Final</ion-label>
+      <ion-input
+        [(ngModel)]="precioFinal">
+      </ion-input>
+      <ion-label>Ahorro</ion-label>
+      <ion-input
+        [(ngModel)]="ahorro">
+      </ion-input>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

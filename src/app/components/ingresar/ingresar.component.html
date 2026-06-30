@@ -1,0 +1,93 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Ingresar Movimiento</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="ion-padding-vertical">
+    <ion-card-header>
+      <ion-card-title>Ingreso Movimientos</ion-card-title>
+      <ion-card-subtitle>Ingreso N°{{idMov}}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-label>Titulo</ion-label>
+      <ion-input
+        [(ngModel)]="titulo"
+        clearOnEdit="true">
+      </ion-input>
+      <ion-label>Monto Movimiento</ion-label>
+      <ion-input
+        required
+        type="number"
+        [(ngModel)]="monto"
+        (ionInput)="montoNumber()">
+      </ion-input>
+      <ion-label>Descripcion</ion-label>
+      <ion-textarea
+        [counter]="true"
+        [(ngModel)]="descripcion"
+        maxlength="70">
+      </ion-textarea>
+      <ion-label>Fecha</ion-label>
+      <ion-input disabled
+        [(ngModel)]="fechaDisplay">
+      </ion-input>
+      <div class="ion-text-center">
+        <ion-button
+          (click)="ingresar()">
+          Ingresar
+        </ion-button>
+      </div>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-button
+              size="default"
+              expand="block"
+              color="medium"
+              (click)="limpiar()">
+              Limpiar
+            </ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-button
+              size="default"
+              expand="block">
+              Ingresar
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-content>
+      <ion-label>Asi se vera tu ingreso</ion-label>
+      <ion-list>
+        <ion-item button>
+          <ion-grid>
+            <ion-row>
+              <ion-col size="auto">
+                {{idMov}}
+              </ion-col>
+              <ion-col>
+                {{monto}}
+              </ion-col>
+              <ion-col size="auto">
+                {{fechaDisplay}}
+              </ion-col>
+              <ion-col size="auto">
+                {{idUser}}
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

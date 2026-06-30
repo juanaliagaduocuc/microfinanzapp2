@@ -1,20 +1,113 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+  @if(isActive == 0) {
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title>
+        MicroFinanzApp
+      </ion-title>
+      <ion-button
+        class="ion-padding-end"
+        slot="end"
+        type="button"
+        [routerLink]="['/login']">
+        Iniciar Sesion
+      </ion-button>
     </ion-toolbar>
-  </ion-header>
+  }@else {
+    <ion-toolbar>
+      <ion-title>
+        MicroFinanzApp
+      </ion-title>
+      <ion-button
+        class="ion-padding-end"
+        slot="end"
+        (click)="cerrarSesion()">
+        Cerrar Sesion
+      </ion-button>
+    </ion-toolbar>
+  }
+</ion-header>
+<ion-content>
+@if(isActive==0) {
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+}@else{
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>
+        Bienvenido {{nombreUsuario}}
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-label>Tu Balance: </ion-label>
+      <ion-input disabled
+        [(ngModel)]="balance">
+      </ion-input>
+    </ion-card-content>
+  </ion-card>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-card>
+          <ion-card-content>
+            <ion-list>
+              <ion-item>{{ufname}}</ion-item>
+              <ion-item>{{uf}}</ion-item>
+            </ion-list>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col>
+        <ion-card>
+          <ion-card-content>
+            <ion-list>
+              <ion-item>{{utmname}}</ion-item>
+              <ion-item>{{utm}}</ion-item>
+            </ion-list>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-card>
+          <ion-card-content>
+            <ion-list>
+              <ion-item>{{dolarname}}</ion-item>
+              <ion-item>{{dolar}}</ion-item>
+            </ion-list>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col>
+        <ion-card>
+          <ion-card-content>
+            <ion-list>
+              <ion-item>{{euroname}}</ion-item>
+              <ion-item>{{euro}}</ion-item>
+            </ion-list>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+}
 </ion-content>
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button [routerLink]="['/calculator']">
+      <ion-icon name="calculator-outline"></ion-icon>
+      <ion-label>Calculadora</ion-label>
+    </ion-tab-button>
+    <ion-tab-button 
+      [routerLink]="['/movements']"
+      [disabled]="isActive==0">
+      <ion-icon name="swap-vertical-outline"></ion-icon>
+      <ion-label>Movimientos</ion-label>
+    </ion-tab-button>
+    <ion-tab-button
+      [routerLink]="['/perfil']"
+      [disabled]="isActive==0">
+      <ion-icon name="person-outline"></ion-icon>
+      <ion-label>Perfil</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>

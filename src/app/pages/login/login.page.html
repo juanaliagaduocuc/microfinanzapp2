@@ -1,0 +1,67 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button (click)="volver()"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>
+        Inicia Sesion
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-label>Nombre de Usuario</ion-label>
+      <ion-input
+        [(ngModel)]="userLogin">
+      </ion-input>
+      <ion-label>Contraseña</ion-label>
+      <ion-input
+        [(ngModel)]="passLogin">
+      </ion-input>
+      <div class="ion-text-center">
+        <ion-button
+          (click)="ingresar()">
+          Ingresar
+        </ion-button>
+      </div>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>
+        ¿No tienes cuenta?
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-label>Nombre de Usuario</ion-label>
+      <ion-input
+        [(ngModel)]="userReg">
+      </ion-input>
+      <ion-label>Contraseña</ion-label>
+      <ion-input
+        [(ngModel)]="passReg">
+      </ion-input>
+      <ion-label>Correo</ion-label>
+      <ion-input
+        [(ngModel)]="emailReg">
+      </ion-input>
+      <div class="ion-text-center">
+        <ion-button
+          (click)="registrar()">
+          Registrarse
+        </ion-button>
+      </div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar class="ion-text-center">
+    <ion-title>Almost 100% Juan Aliaga</ion-title>
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Movimientos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>
+        Lista de Movimientos
+      </ion-card-title>
+    </ion-card-header>
+  </ion-card>
+
+  <ion-list>
+    @for(mov of movimientos; track mov.id_mov) {
+      <ion-grid>
+        <ion-row>
+          <ion-col size="auto">{{mov.id_mov}}</ion-col>
+          <ion-col>{{mov.monto}}</ion-col>
+          <ion-col>{{mov.fecha}}</ion-col>
+          <ion-col size="auto">{{mov.id_usuario}}</ion-col>
+        </ion-row>
+      </ion-grid>
+    }@empty {
+      <ion-item>No Hay Ingresos</ion-item>
+    }
+  </ion-list>
+</ion-content>
